@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_wood">#2E5A44</color>
+    <color name="primary_wood_dark">#1E3C2D</color>
+    <color name="accent_oak">#D97706</color>
+    <color name="check_in_green">#16A34A</color>
+    <color name="check_out_red">#DC2626</color>
+    <color name="bg_main">#F8FAFC</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="text_muted">#64748B</color>
+</resources>
