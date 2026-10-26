@@ -1,0 +1,2 @@
+# Inicio
+Proyecto MaderiCheck inicializado.
