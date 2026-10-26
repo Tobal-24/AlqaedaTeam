@@ -33,7 +33,6 @@ class AttendanceViewModel(application: Application) : AndroidViewModel(applicati
             timestamp = timestamp
         )
 
-        // Guardar el registro en SharedPreferences usando el repositorio
         repository.saveAttendanceRecord(record)
 
         _message.value = "Marcaje de $type registrado correctamente"
