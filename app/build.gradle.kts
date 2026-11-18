@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application") version "8.2.2"
+    id("com.android.application") version "8.13.2"
     id("org.jetbrains.kotlin.android") version "1.9.20"
 }
 
@@ -61,6 +61,11 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
@@ -68,4 +73,5 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation(kotlin("test"))
 }
