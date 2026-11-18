@@ -18,7 +18,7 @@ Aplicación móvil nativa en Android (Kotlin) para el control de asistencia de o
 * **Pruebas Unitarias (JUnit):** Validación automatizada de formularios y modelos de datos en `src/test`.
 
 ## Endpoints Consumidos (Retrofit + Xano)
-* **Base URL:** `https://x8ki-letl-twmt.n7.xano.io/api:https://x8ki-letl-twmt.n7.xano.io/api:n1NupKtK/`
+* **Base URL:** `"https://x8ki-letl-twmt.n7.xano.io/api:n1NupKtK/"`
 * `GET usuario` — Obtiene el listado de operarios registrados.
 * `POST usuario` — Registra un nuevo operario en Xano.
 * `GET usuario/{usuario_id}` — Consulta los datos de un operario específico.
