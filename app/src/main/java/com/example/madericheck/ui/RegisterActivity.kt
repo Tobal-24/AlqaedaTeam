@@ -5,11 +5,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.madericheck.R
+import com.example.madericheck.model.XanoUser
+import com.example.madericheck.repository.RetrofitClient
 import com.example.madericheck.viewmodel.RegisterViewModel
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -44,8 +48,30 @@ class RegisterActivity : AppCompatActivity() {
 
         viewModel.registerSuccess.observe(this) { success ->
             if (success) {
-                Toast.makeText(this, "¡Registro de operario exitoso!", Toast.LENGTH_SHORT).show()
-                finish()
+                btnRegister.isEnabled = false
+                val rutVal = etRut.text.toString().trim()
+                val nombreVal = etFullName.text.toString().trim()
+                val roleVal = etRole.text.toString().trim()
+                val passVal = etPassword.text.toString().trim()
+                val cleanRut = rutVal.replace(".", "").replace("-", "")
+                val emailVal = if (roleVal.contains("@")) roleVal else "$cleanRut@madericheck.cl"
+
+                lifecycleScope.launch {
+                    try {
+                        val nuevoUsuario = XanoUser(
+                            rut = rutVal,
+                            nombre = nombreVal,
+                            email = emailVal,
+                            password = passVal
+                        )
+                        RetrofitClient.apiService.registerUser(nuevoUsuario)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    } finally {
+                        Toast.makeText(this@RegisterActivity, "¡Registro de operario exitoso!", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                }
             }
         }
 
